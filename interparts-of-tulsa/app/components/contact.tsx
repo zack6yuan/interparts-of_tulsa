@@ -1,12 +1,15 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { MapPin, Phone, Clock } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contact() {
   const [status, setStatus] = useState<
-    "idle" | "submitting" | "success" | "error"
+    "idle" | "submitting" | "success" | "error" | "recaptcha-missing"
   >("idle");
+
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,6 +17,17 @@ export default function Contact() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+
+    // 1. Extract the reCAPTCHA token value from the ref
+    const recaptchaValue = recaptchaRef.current?.getValue();
+
+    if (!recaptchaValue) {
+      setStatus("recaptcha-missing");
+      return;
+    }
+
+    // 2. Append the reCAPTCHA token to match Formspree's background validation rules
+    data.append("g-recaptcha-response", recaptchaValue);
 
     try {
       const response = await fetch("https://formspree.io/f/mvzjvbkk", {
@@ -25,6 +39,7 @@ export default function Contact() {
       if (response.ok) {
         setStatus("success");
         form.reset();
+        recaptchaRef.current?.reset(); // Clear the reCAPTCHA checkbox state on success
       } else {
         setStatus("error");
       }
@@ -42,11 +57,12 @@ export default function Contact() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-14 relative z-10 flex flex-col gap-8 md:gap-12">
-        
-        {/* Header Section: Adapts left-alignment for mobile, preserves clean right-alignment on desktop */}
+        {/* Header Section */}
         <div className="flex flex-col items-start md:items-end md:justify-end gap-6 border-b border-white/10 pb-8 text-left md:text-right">
           <div className="flex flex-col items-start md:items-end font-bebas tracking-wide leading-[0.95] w-full">
-            <p className="text-2xl md:text-3xl mb-3 md:mb-4 text-white/30">// Quick Quote</p>
+            <p className="text-2xl md:text-3xl mb-3 md:mb-4 text-white/30">
+              // Quick Quote
+            </p>
             <h2 className="text-5xl sm:text-7xl md:text-8xl text-gold mt-1">
               <span className="text-white">Let&apos;s</span> Talk.
             </h2>
@@ -55,8 +71,7 @@ export default function Contact() {
 
         {/* Form & Info Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          
-          {/* Left Column: Context Paragraphs & Direct Information Metadata */}
+          {/* Left Column: Info Metadata */}
           <div className="w-full flex flex-col gap-8 md:gap-10 max-w-xl mx-auto lg:mx-0">
             <div className="flex flex-col gap-4 text-white/80 text-base md:text-lg leading-relaxed font-google font-normal">
               <p>
@@ -77,7 +92,6 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Quick-Connect Information Row Array */}
             <div className="flex flex-col gap-4 sm:gap-5 border-t border-white/10 pt-8 font-google font-normal text-sm sm:text-base">
               <div className="flex items-center gap-4">
                 <MapPin className="stroke-gold shrink-0" size={20} />
@@ -115,7 +129,10 @@ export default function Contact() {
               className="flex flex-col gap-5 bg-white/3 border border-white/10 rounded-sm p-5 sm:p-8"
             >
               <div className="flex flex-col gap-2 font-google">
-                <label htmlFor="name" className="text-xs sm:text-sm text-white/60 font-medium">
+                <label
+                  htmlFor="name"
+                  className="text-xs sm:text-sm text-white/60 font-medium"
+                >
                   Name
                 </label>
                 <input
@@ -129,7 +146,10 @@ export default function Contact() {
               </div>
 
               <div className="flex flex-col gap-2 font-google">
-                <label htmlFor="email" className="text-xs sm:text-sm text-white/60 font-medium">
+                <label
+                  htmlFor="email"
+                  className="text-xs sm:text-sm text-white/60 font-medium"
+                >
                   Email
                 </label>
                 <input
@@ -143,7 +163,10 @@ export default function Contact() {
               </div>
 
               <div className="flex flex-col gap-2 font-google">
-                <label htmlFor="phone" className="text-xs sm:text-sm text-white/60 font-medium">
+                <label
+                  htmlFor="phone"
+                  className="text-xs sm:text-sm text-white/60 font-medium"
+                >
                   Phone
                 </label>
                 <input
@@ -156,7 +179,10 @@ export default function Contact() {
               </div>
 
               <div className="flex flex-col gap-2 font-google">
-                <label htmlFor="message" className="text-xs sm:text-sm text-white/60 font-medium">
+                <label
+                  htmlFor="message"
+                  className="text-xs sm:text-sm text-white/60 font-medium"
+                >
                   Message
                 </label>
                 <textarea
@@ -166,6 +192,15 @@ export default function Contact() {
                   rows={5}
                   className="bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white placeholder:text-white/30 text-sm sm:text-base focus:outline-none focus:border-gold transition-colors resize-none font-normal"
                   placeholder="Tell us what's going on with your vehicle..."
+                />
+              </div>
+
+              {/* 3. Render reCAPTCHA v2 Widget centered perfectly */}
+              <div className="my-1 flex w-full justify-center overflow-hidden">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY"
+                  theme="dark"
                 />
               </div>
 
@@ -182,6 +217,11 @@ export default function Contact() {
                   Thanks, we&apos;ll be in touch soon.
                 </p>
               )}
+              {status === "recaptcha-missing" && (
+                <p className="font-google text-sm text-yellow-400 text-center font-normal mt-1">
+                  Please complete the reCAPTCHA verification step.
+                </p>
+              )}
               {status === "error" && (
                 <p className="font-google text-sm text-red-400 text-center font-normal mt-1">
                   Something went wrong. Please try again or call us directly.
@@ -189,7 +229,6 @@ export default function Contact() {
               )}
             </form>
           </div>
-
         </div>
       </div>
     </div>
