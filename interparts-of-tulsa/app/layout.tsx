@@ -1,9 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Google_Sans_Flex, Bebas_Neue, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/navbar";
+import SubNav from "./components/subnav";
 
-const inter = Inter({ subsets: ["latin"] });
+const googleSansFlex = Google_Sans_Flex({
+  subsets: ['latin'],
+  variable: '--font-google-sans-flex',
+})
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-bebas-neue',
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-space-grotesk',
+})
 
 export const metadata: Metadata = {
   title: "Interparts of Tulsa",
@@ -16,8 +32,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${googleSansFlex.variable} ${bebasNeue.variable} ${spaceGrotesk.variable}`}>
+      <body className={googleSansFlex.className}>
+        <SubNav />
         <Navbar />
         {children}
       </body>

@@ -16,3 +16,12 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+@theme {
+  --font-heading: var(--font-space-grotesk);
+  --color-navy: #0F1B3D;
+  --color-gold: #FFB81C;
+  --font-bebas: var(--font-bebas-neue);
+  --font-space: var(--font-space-grotesk);
+  --font-google: var(--font-google-sans-flex);
+}
