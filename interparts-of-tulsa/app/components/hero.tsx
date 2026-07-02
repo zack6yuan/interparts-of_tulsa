@@ -1,6 +1,7 @@
 "use client";
 import { CircleDollarSign, Wrench } from "lucide-react";
 import { useRouter } from "next/navigation";
+import GradientText from "./gradientText";
 
 export default function Hero() {
   const router = useRouter();
@@ -9,6 +10,9 @@ export default function Hero() {
   const handleScroll = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Custom automotive metallic gold linear gradient mapping
+  const goldGradient = "linear-gradient(90deg, #eab308 0%, #fef08a 30%, #ffffff 50%, #fef08a 70%, #eab308 100%)";
 
   return (
     <div 
@@ -24,9 +28,17 @@ export default function Hero() {
         
         {/* Main Typography Header Section */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left font-bebas max-w-4xl tracking-wide leading-[0.95]">
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-gold">
-            Fast, Honest Work
+          
+          {/* Integrated moving gradient component inheriting font sizing */}
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl">
+            <GradientText 
+              text="Fast, Honest Work" 
+              gradient={goldGradient}
+              neon={true} // Subtly mimics classic Route 66 neon-light glow overlays
+              transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+            />
           </h1>
+
           <h2 className="text-5xl lg:text-7xl xl:text-8xl text-white mt-2">
             RIGHT ON ROUTE 66.
           </h2>
