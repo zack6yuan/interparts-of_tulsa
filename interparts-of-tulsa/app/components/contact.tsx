@@ -199,7 +199,7 @@ export default function Contact() {
               <div className="my-1 flex w-full justify-center overflow-hidden">
                 <ReCAPTCHA
                   ref={recaptchaRef}
-                  sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY"
+                  sitekey="6LcX4EEtAAAAADnhoqO2SJoDA19bVJLZUFhGNnnU"
                   theme="dark"
                 />
               </div>
