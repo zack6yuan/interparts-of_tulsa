@@ -49,7 +49,7 @@ export default function TheDifference() {
 
   return (
     <div
-      id="services"
+      id="difference"
       className="relative w-full min-h-screen flex flex-col justify-center bg-navy bg-cover bg-center bg-no-repeat overflow-hidden py-24"
     >
       {/* Background Subtle Blueprint Grid (Optional: Matches the Hero design language) */}
@@ -62,7 +62,7 @@ export default function TheDifference() {
             <h2 className="text-6xl md:text-8xl text-gold mt-1">Difference</h2>
           </div>
           <p className="font-sans text-lg md:text-xl text-slate-300 max-w-md leading-relaxed">
-            At Interarts, we believe you deserve dealership-grade precision with family-owned integrity. Every service is executed by trained technicians utilizing only premium, OEM, quality parts. We walk you through our diagnostics and explain every detail clearly before we turn a single wrench, keeping you in complete control.
+            At Interparts, we believe you deserve dealership-grade precision with family-owned integrity. Every service is executed by trained technicians utilizing only premium, OEM, quality parts. We walk you through our diagnostics and explain every detail clearly before we turn a single wrench, keeping you in complete control.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">

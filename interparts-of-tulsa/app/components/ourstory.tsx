@@ -5,7 +5,7 @@ import { Handshake, DollarSignIcon, Gauge, ShieldCheck } from "lucide-react";
 export default function OurStory() {
   return (
     <div
-      id="Story"
+      id="about"
       className="relative w-full min-h-screen flex flex-col justify-center bg-navy bg-cover bg-center bg-no-repeat overflow-hidden py-24"
     >
       {/* Background Grid Pattern */}
@@ -16,8 +16,8 @@ export default function OurStory() {
         <div className="flex flex-col md:flex-row md:items-end justify-end gap-6 border-b border-white/10 pb-8">
           <div className="flex flex-col items-end font-bebas tracking-wide leading-[0.95]">
             <p className="text-3xl mb-4 text-white/30">// Our Story</p>
-            <h1 className="text-6xl md:text-8xl text-white">TULSA BUILT.</h1>
-            <h2 className="text-6xl md:text-8xl text-gold mt-1">TULSA PROUD.</h2>
+            <h1 className="text-6xl md:text-8xl text-white">BORN ON</h1>
+            <h2 className="text-6xl md:text-8xl text-gold mt-1">ROUTE 66.</h2>
           </div>
         </div>
 
@@ -40,13 +40,11 @@ export default function OurStory() {
             {/* Paragraphs */}
             <div className="flex flex-col gap-4 text-white/80 text-lg leading-relaxed">
               <p>
-                Interparts of Tulsa opened its doors in 1979 with a simple
-                promise: honest work, fair prices, and the kind of service that
-                brings neighbors back. That hasn&apos;t changed.
+                Interparts of Tulsa opened its doors in 1979 on historic Route 66, with a simple promise: honest work, fair prices, and the kind of service that brings neighbors back. That hasn&apos;t changed.
               </p>
               <p>
                 Backed by generations of Tulsa families that keep coming back,
-                Interparts is not a chain, not a franchise – we&apos;re a
+                Interparts is not a chain, not a franchise, we&apos;re a
                 family-owned business that happens to know more about your
                 vehicle than anyone else in town.
               </p>

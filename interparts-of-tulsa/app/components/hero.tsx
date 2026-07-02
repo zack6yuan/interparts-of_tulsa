@@ -17,14 +17,14 @@ export default function Hero() {
         
         <div className="flex flex-col items-start font-bebas max-w-4xl tracking-wide leading-[0.95]">
           <h1 className="text-7xl md:text-9xl text-gold">
-            <span className="text-white">45+</span>YEARS STRONG.
+            Fast, Honest Work
           </h1>
           <h2 className="text-6xl md:text-8xl text-white mt-2">
-            BUILT ON TULSA&apos;S TRUST.
+            RIGHT ON ROUTE 66.
           </h2>
           <p className="font-google text-xl md:text-2xl mt-6 text-slate-300 normal-case max-w-2xl leading-relaxed font-normal">
             Tulsa&apos;s most respected independent auto shop. We&apos;ve been
-            fixing it right, the first time, since 1979.
+            fixing it right, the first time, since 1980.
           </p>
         </div>
         

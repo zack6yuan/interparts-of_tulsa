@@ -3,6 +3,7 @@ import TheDifference from "./components/difference";
 import Hero from "./components/hero";
 import OurStory from "./components/ourstory";
 import Services from "./components/services";
+import Testimonials from "./components/testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
       <OurStory />
       <hr className="w-full border-t border-gold/50" />
       <TheDifference />
+      <hr className="w-full border-t border-gold/50" />
+      <Testimonials />
     </main>
   );
 }
