@@ -126,6 +126,8 @@ export default function Contact() {
           <div className="w-full max-w-xl mx-auto lg:mx-0">
             <form
               onSubmit={handleSubmit}
+              method="POST" // <-- Add this
+              action="https://formspree.io/f/mvzjvbkk" // <-- Add this fallback
               className="flex flex-col gap-5 bg-white/3 border border-white/10 rounded-sm p-5 sm:p-8"
             >
               <div className="flex flex-col gap-2 font-google">
