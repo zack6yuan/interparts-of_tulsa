@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
 import {
   Wrench,
@@ -56,6 +57,7 @@ export default function Services() {
       <div className="w-full max-w-7xl mx-auto px-6 md:px-14 relative z-10 flex flex-col gap-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
           <div className="flex flex-col items-start font-bebas tracking-wide leading-[0.95]">
+            <p className="text-3xl mb-4 text-white/30">// Services</p>
             <h1 className="text-6xl md:text-8xl text-white">Full-Service</h1>
             <h2 className="text-6xl md:text-8xl text-gold mt-1">Auto Repair</h2>
           </div>

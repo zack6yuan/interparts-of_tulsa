@@ -1,5 +1,6 @@
 import Banner from "./components/banner";
 import Hero from "./components/hero";
+import OurStory from "./components/ourstory";
 import Services from "./components/services";
 
 export default function Home() {
@@ -8,6 +9,8 @@ export default function Home() {
       <Hero />
       <Banner />
       <Services />
+      <hr className="w-full border-t border-gold/50" />
+      <OurStory />
     </main>
   );
 }
