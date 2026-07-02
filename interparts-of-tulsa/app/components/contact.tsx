@@ -48,6 +48,8 @@ export default function Contact() {
     }
   };
 
+  console.log("RECAPTCHA KEY:", process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
+  
   return (
     <div
       id="contact"
