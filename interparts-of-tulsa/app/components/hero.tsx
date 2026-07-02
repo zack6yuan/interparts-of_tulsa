@@ -11,12 +11,15 @@ export default function Hero() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Custom automotive metallic gold linear gradient mapping
   const goldGradient = "linear-gradient(90deg, #eab308 0%, #fef08a 30%, #ffffff 50%, #fef08a 70%, #eab308 100%)";
 
   return (
     <div 
-      className="relative w-full min-h-[calc(100vh-140px)] md:min-h-[calc(100vh-120px)] flex flex-col justify-center bg-navy bg-cover bg-center bg-no-repeat overflow-hidden"
+      /* CHANGES MADE BELOW:
+        1. Changed mobile height from `min-h-[calc(100vh-140px)]` to `min-h-[70vh]` or `min-h-[calc(100vh-240px)]` to make it shorter.
+        2. Swapped `justify-center` to `justify-start md:justify-center` to pull content upward on mobile.
+      */
+      className="relative w-full min-h-[calc(100vh-240px)] md:min-h-[calc(100vh-120px)] flex flex-col justify-start md:justify-center bg-navy bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(10, 25, 47, 0.95) 40%, rgba(10, 25, 47, 0.80) 100%), url(${bgImageURL})`
       }}
@@ -24,22 +27,25 @@ export default function Hero() {
       {/* Desktop Specific Masking Gradient Layer */}
       <div className="absolute inset-0 hidden md:block bg-linear-to-r from-navy via-navy/90 to-transparent pointer-events-none" />
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-14 lg:px-20 py-16 md:py-24 relative z-10 flex flex-col justify-center">
+      {/* CHANGES MADE BELOW:
+        3. Changed padding-y from `py-16 md:py-24` to `pt-12 pb-16 md:py-24`. 
+           The smaller top padding (`pt-12`) shifts everything closer to the navbar on small screens.
+      */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-14 lg:px-20 pt-30 pb-16 md:py-24 relative z-10 flex flex-col justify-center">
         
         {/* Main Typography Header Section */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left font-bebas max-w-4xl tracking-wide leading-[0.95]">
           
-          {/* Integrated moving gradient component inheriting font sizing */}
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">
             <GradientText 
               text="Fast, Honest Work" 
               gradient={goldGradient}
-              neon={true} // Subtly mimics classic Route 66 neon-light glow overlays
+              neon={true}
               transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             />
           </h1>
 
-          <h2 className="text-5xl lg:text-7xl xl:text-8xl text-white mt-2">
+          <h2 className="text-6xl lg:text-7xl xl:text-8xl text-white mt-2">
             RIGHT ON ROUTE 66.
           </h2>
           <p className="font-google text-base sm:text-lg md:text-xl lg:text-2xl mt-6 text-slate-300 normal-case max-w-md lg:max-w-2xl leading-relaxed font-normal">
