@@ -18,7 +18,7 @@ export default function Hero() {
       }}
     >
       {/* Desktop Specific Masking Gradient Layer */}
-      <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-navy via-navy/90 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 hidden md:block bg-linear-to-r from-navy via-navy/90 to-transparent pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-14 lg:px-20 py-16 md:py-24 relative z-10 flex flex-col justify-center">
         
@@ -31,7 +31,7 @@ export default function Hero() {
             RIGHT ON ROUTE 66.
           </h2>
           <p className="font-google text-base sm:text-lg md:text-xl lg:text-2xl mt-6 text-slate-300 normal-case max-w-md lg:max-w-2xl leading-relaxed font-normal">
-            Tulsa's most respected independent auto shop. We've been
+            Tulsa&apos;s most respected independent auto shop. We&apos;ve been
             fixing it right, the first time, since 1980.
           </p>
         </div>
