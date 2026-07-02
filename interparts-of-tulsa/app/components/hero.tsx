@@ -30,7 +30,7 @@ export default function Hero() {
         
         <div className="flex gap-5 mt-10">
           <button 
-            onClick={() => router.push('/services')} 
+            onClick={() => router.push('#services')} 
             className="flex items-center gap-4 bg-gold px-8 py-4 text-navy font-bold rounded-sm uppercase text-xl transition-all duration-200 hover:bg-yellow-500 active:scale-[0.98] shadow-md"
           >
             <Wrench size={24} strokeWidth={2} className="stroke-navy fill-navy" />
