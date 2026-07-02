@@ -26,7 +26,7 @@ export default function OurStory() {
           {/* Left Column: Image (Matches height of Right Column dynamically) */}
           <div className="relative w-full h-full min-h-112.5 lg:min-h-0 rounded-lg overflow-hidden">
             <Image
-              src="/neonsign.png"
+              src="/newfront.jpg"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               alt="Store front of Interparts of Tulsa with neon sign and painted Golden Driller on front of building"

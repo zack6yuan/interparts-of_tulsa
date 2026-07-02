@@ -58,8 +58,8 @@ export default function Services() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
           <div className="flex flex-col items-start font-bebas tracking-wide leading-[0.95]">
             <p className="text-3xl mb-4 text-white/30">// Services</p>
-            <h1 className="text-6xl md:text-8xl text-white">Full-Service</h1>
-            <h2 className="text-6xl md:text-8xl text-gold mt-1">Auto Repair</h2>
+            <h1 className="text-6xl md:text-8xl text-gold">Same Day</h1>
+            <h2 className="text-6xl md:text-8xl text-white mt-1">Auto Repair</h2>
           </div>
           <p className="font-sans text-lg md:text-xl text-slate-300 max-w-md leading-relaxed">
             Every service performed by trained technicians using OEM-quality
