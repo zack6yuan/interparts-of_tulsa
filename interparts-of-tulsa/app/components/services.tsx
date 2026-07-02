@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 
 export default function Services() {
-  // Array of services for clean, scannable grid rendering
   const serviceList = [
     {
       icon: <ThermometerSnowflake size={28} />,
@@ -38,7 +37,7 @@ export default function Services() {
       desc: "Transmission fluid flushes, clutch adjustments, torque converter fixes, and complete assembly replacements or rebuilds.",
     },
     {
-      icon: <Ban size={28} />, // Optional swap: <Activity size={28} /> or <CheckCircle size={28} /> work great here too
+      icon: <Ban size={28} />, 
       title: "Tune-ups and Maintenance",
       desc: "Spark plug replacements, filter changes, fluid flushes, safety checks, and mileage-interval preventative maintenance.",
     },
@@ -47,36 +46,38 @@ export default function Services() {
   return (
     <div
       id="services"
-      className="relative w-full min-h-screen flex flex-col justify-center bg-navy bg-cover bg-center bg-no-repeat overflow-hidden py-24"
+      className="relative w-full min-h-screen flex flex-col justify-center bg-navy bg-cover bg-center bg-no-repeat overflow-hidden py-16 md:py-24"
     >
-      {/* Background Subtle Blueprint Grid (Optional: Matches the Hero design language) */}
+      {/* Background Subtle Blueprint Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none" />
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-14 relative z-10 flex flex-col gap-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8">
+      
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-14 relative z-10 flex flex-col gap-8 md:gap-12">
+        
+        {/* Header Section - Fixed alignment constraints */}
+        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 border-b border-white/10 pb-8 text-left">
+          
           <div className="flex flex-col items-start font-bebas tracking-wide leading-[0.95]">
-            <p className="text-3xl mb-4 text-white/30">// Services</p>
-            <h1 className="text-6xl md:text-8xl text-gold">Same Day</h1>
-            <h2 className="text-6xl md:text-8xl text-white mt-1">
-              Auto Repair
+            <p className="text-2xl md:text-3xl mb-3 md:mb-4 text-white/30">// Services</p>
+            <h1 className="text-5xl sm:text-7xl md:text-8xl text-gold">Same Day</h1>
+            <h2 className="text-5xl sm:text-7xl md:text-8xl text-white mt-1">
+              Auto Repair.
             </h2>
           </div>
-          <p className="font-sans text-lg md:text-xl text-slate-300 max-w-md leading-relaxed">
-            Every service performed by trained technicians using OEM-quality
-            parts.
-            <span className="text-white font-semibold">
-              {" "}
-              No shortcuts. No excuses.
-            </span>{" "}
-            We explain everything clearly before turning a single wrench, so
-            you’re always in complete control.
+          
+          {/* Subtitle paragraph - Tops out on desktop, flows perfectly on mobile */}
+          <p className="font-google text-base md:text-lg text-slate-300 w-full lg:max-w-md leading-relaxed font-normal lg:mt-12">
+            Every service performed by trained technicians using OEM-quality parts. <span className="text-gold">No shortcuts. No excuses. </span>
+            We explain everything clearly before turning a single wrench, so you’re always in complete control.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+
+        {/* Services Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
           {serviceList.map((service, index) => {
             return (
               <div
                 key={index}
-                className="bg-white/3 border border-white/10 hover:border-gold/40 p-6 rounded-sm transition-all duration-300 group hover:bg-white/[0.05]"
+                className="bg-white/3 border border-white/10 hover:border-gold/40 p-6 rounded-sm transition-all duration-300 group hover:bg-white/5 flex flex-col items-start text-left"
               >
                 <div className="text-gold stroke-gold mb-4 transition-transform duration-300 group-hover:scale-110 inline-block">
                   {service.icon}
@@ -84,14 +85,14 @@ export default function Services() {
                 <h3 className="font-bebas text-2xl md:text-3xl text-white tracking-wide mb-2">
                   {service.title}
                 </h3>
-
-                <p className="font-sans text-sm md:text-base text-slate-400 leading-relaxed">
+                <p className="font-google text-sm md:text-base text-slate-400 leading-relaxed font-normal">
                   {service.desc}
                 </p>
               </div>
             );
           })}
         </div>
+
       </div>
     </div>
   );

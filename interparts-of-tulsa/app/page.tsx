@@ -4,6 +4,9 @@ import Hero from "./components/hero";
 import OurStory from "./components/ourstory";
 import Services from "./components/services";
 import Testimonials from "./components/testimonials";
+import Location from "./components/location";
+import Contact from "./components/contact";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
@@ -17,6 +20,12 @@ export default function Home() {
       <TheDifference />
       <hr className="w-full border-t border-gold/50" />
       <Testimonials />
+      <hr className="w-full border-t border-gold/50" />
+      <Location />
+      <hr className="w-full border-t border-gold/50" />
+      <Contact />
+      <hr className="w-full border-t border-gold/50" />
+      <Footer />
     </main>
   );
 }

@@ -25,3 +25,11 @@ body {
   --font-space: var(--font-space-grotesk);
   --font-google: var(--font-google-sans-flex);
 }
+
+@layer utilities {
+  @keyframes shine {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
