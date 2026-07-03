@@ -14,10 +14,17 @@ export default function Contact() {
     const data = new FormData(form);
 
     try {
+      // Convert FormData entries into a standard JavaScript object
+      const formObject = Object.fromEntries(data.entries());
+
+      // Send as a clean JSON payload with explicit content-type headers
       const response = await fetch("https://formspree.io/f/mvzjvbkk", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        body: JSON.stringify(formObject),
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json" 
+        },
       });
 
       if (response.ok) {
