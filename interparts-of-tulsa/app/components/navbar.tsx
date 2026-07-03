@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Wrench, Menu, X } from "lucide-react";
+import { Wrench, Menu, X, CircleDollarSign } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
@@ -50,9 +50,9 @@ export default function Navbar() {
             className="relative overflow-hidden rounded bg-gold text-navy font-google font-bold px-5 py-2.5 flex items-center gap-2.5 shadow-lg shadow-gold/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-gold/20 active:translate-y-0 group" 
             onClick={() => handleScroll("contact")}
           >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shine_1s_ease-in-out]" />
-            <Wrench size={16} className="text-navy fill-navy transition-transform duration-300 group-hover:rotate-45" />
-            <span className="text-base tracking-wide font-google">Get a Quote</span>
+            <span className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shine_1s_ease-in-out]" />
+            <CircleDollarSign size={20} className="text-navy stroke-2 transition-transform duration-300" />
+            <span className="text-base tracking-wide font-google">GET A QUOTE</span>
           </button>
         </div>
 

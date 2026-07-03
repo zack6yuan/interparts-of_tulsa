@@ -38,7 +38,7 @@ export default function TheDifference() {
     {
       icon: <BrickWallShield size={28} />,
       title: "Labor Guarantee",
-      desc: "All labor comes with a 12-month/12,000-mile guarantee. If the problem returns, we fix it. No charge. No debate.",
+      desc: "All labor comes with a 6 month guarantee. If the problem returns, we fix it. No charge. No debate.",
     },
     {
       icon: <Leaf size={28} />, 

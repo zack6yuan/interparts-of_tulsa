@@ -50,7 +50,7 @@ export default function Hero() {
           </h2>
           <p className="font-google text-base sm:text-lg md:text-xl lg:text-2xl mt-6 text-slate-300 normal-case max-w-md lg:max-w-2xl leading-relaxed font-normal">
             Tulsa&apos;s most respected independent auto shop. We&apos;ve been
-            fixing it right, the first time, since 1980.
+            fixing it right, the first time, since 1980. Experience precise diagnostics, transparent pricing, and efficient service designed to get you back on the road safely and swiftly.
           </p>
         </div>
         

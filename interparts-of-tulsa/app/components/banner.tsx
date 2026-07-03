@@ -64,9 +64,9 @@ export default function Banner() {
 
         {/* Stat 4 */}
         <div className="flex items-center justify-center md:justify-start lg:justify-center gap-3 w-full font-bebas px-4 border-t md:border-t-0 md:border-l border-navy/20 pt-10 md:pt-0 md:h-12">
-          <p className="text-5xl lg:text-6xl font-medium tracking-tight">100%</p>
+          <p className="text-5xl lg:text-6xl font-medium tracking-tight">6</p>
           <p className="text-base lg:text-lg font-google font-bold leading-tight uppercase">
-            Guarantee <br /> on all Labor
+            Month Guarantee <br /> on all Labor
           </p>
         </div>
 
