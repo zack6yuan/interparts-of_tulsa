@@ -71,7 +71,6 @@ export default function Contact() {
 
         {/* Right Column: Form Block */}
         <div className="w-full max-w-xl mx-auto lg:mx-0">
-          {/* Passing Formspree's native handleSubmit directly removes intermediate type checkers */}
           <form
             onSubmit={handleSubmit}
             className="flex flex-col gap-5 bg-white/3 border border-white/10 rounded-sm p-5 sm:p-8"
@@ -119,7 +118,7 @@ export default function Contact() {
               <label
                 htmlFor="phone"
                 className="text-xs sm:text-sm text-white/60 font-medium"
-              >
+                >
                 Phone
               </label>
               <input
@@ -162,7 +161,8 @@ export default function Contact() {
                 Thanks, we'll be in touch soon.
               </p>
             )}
-            {state.errors && state.errors.length > 0 && (
+            
+            {state.errors && !state.succeeded && (
               <p className="font-google text-sm text-red-400 text-center mt-1">
                 Something went wrong. Please try again or call us directly.
               </p>
