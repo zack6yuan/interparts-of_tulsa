@@ -55,18 +55,18 @@ export default function Location() {
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 group"
                 >
-                  <div className="bg-gold/10 p-3 rounded-full text-gold group-hover:bg-gold group-hover:text-navy transition-colors">
+                  <div className="bg-gold/10 p-3 rounded-md text-gold group-hover:bg-gold group-hover:text-navy transition-colors">
                     <MapPin size={24} />
                   </div>
                   <div className="flex flex-col">
                     <span className="font-bebas text-lg text-white">Our Shop</span>
-                    <span className="font-google text-slate-300">3615 E 11th St, <br /> Tulsa, OK 74112</span>
+                    <span className="font-google text-slate-300">3615 E 11th St, Tulsa, OK 74112</span>
                   </div>
                 </a>
 
                 {/* Phone */}
                 <a href="tel:+19188341800" className="flex items-start gap-4 group">
-                  <div className="bg-gold/10 p-3 rounded-full text-gold group-hover:bg-gold group-hover:text-navy transition-colors">
+                  <div className="bg-gold/10 p-3 rounded-md text-gold group-hover:bg-gold group-hover:text-navy transition-colors">
                     <Phone size={24} />
                   </div>
                   <div className="flex flex-col">
@@ -77,12 +77,12 @@ export default function Location() {
 
                 {/* Hours */}
                 <div className="flex items-start gap-4">
-                  <div className="bg-gold/10 p-3 rounded-full text-gold">
+                  <div className="bg-gold/10 p-3 rounded-md text-gold">
                     <Clock size={24} />
                   </div>
                   <div className="flex flex-col">
                     <span className="font-bebas text-lg text-white">Hours</span>
-                    <span className="font-google text-slate-300">Mon – Fri, 8:00AM – 4:30PM</span>
+                    <span className="font-google text-slate-300">Monday through Friday, 8:00AM to 4:30PM</span>
                   </div>
                 </div>
               </div>

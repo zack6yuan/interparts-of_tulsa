@@ -89,7 +89,7 @@ export default function Navbar() {
           className="w-full max-w-xs relative overflow-hidden rounded bg-gold text-navy font-google font-bold py-3.5 flex justify-center items-center gap-2.5 shadow-lg shadow-gold/10" 
           onClick={() => handleScroll("contact")}
         >
-          <Wrench size={18} className="text-navy fill-navy" />
+          <CircleDollarSign size={22} className="text-navy" />
           <span className="text-lg font-google">Get a Quote</span>
         </button>
       </div>

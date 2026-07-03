@@ -126,7 +126,7 @@ export default function Testimonials() {
                 <p className="font-bebas text-2xl sm:text-3xl text-white">4.9/5</p>
               </div>
               <div className="flex items-center gap-2 mt-1 sm:mt-0">
-                <Image src="/facebook.svg" width={20} height={20} alt="facebook-icon" unoptimized className="h-4 w-auto object-contain" />
+                <Image src="/facebook-icon.svg" width={70} height={70} alt="facebook-icon" unoptimized className="h-4 w-auto object-contain" />
                 <p className="font-google text-xs sm:text-sm text-slate-400 whitespace-nowrap font-normal">30+ Votes</p>
               </div>
             </div>

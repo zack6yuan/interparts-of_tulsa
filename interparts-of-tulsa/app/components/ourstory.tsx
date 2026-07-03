@@ -40,7 +40,7 @@ export default function OurStory() {
             {/* Paragraphs - Configured to utilize clean font-google tokens */}
             <div className="flex flex-col gap-4 text-white/80 text-base md:text-lg leading-relaxed font-google font-normal">
               <p>
-                Interparts of Tulsa opened its doors in 1979 on historic Route 66, with a simple promise: honest work, fair prices, and the kind of service that brings neighbors back. That hasn&apos;t changed.
+                Interparts of Tulsa opened its doors in 1980 on historic Route 66, with a simple promise: honest work, fair prices, and the kind of service that brings neighbors back. That hasn&apos;t changed.
               </p>
               <p>
                 Backed by generations of Tulsa families that keep coming back,

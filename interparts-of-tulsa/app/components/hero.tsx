@@ -15,10 +15,6 @@ export default function Hero() {
 
   return (
     <div 
-      /* CHANGES MADE BELOW:
-        1. Changed mobile height from `min-h-[calc(100vh-140px)]` to `min-h-[70vh]` or `min-h-[calc(100vh-240px)]` to make it shorter.
-        2. Swapped `justify-center` to `justify-start md:justify-center` to pull content upward on mobile.
-      */
       className="relative w-full min-h-[calc(100vh-240px)] md:min-h-[calc(100vh-120px)] flex flex-col justify-start md:justify-center bg-navy bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(10, 25, 47, 0.95) 40%, rgba(10, 25, 47, 0.80) 100%), url(${bgImageURL})`
@@ -27,16 +23,15 @@ export default function Hero() {
       {/* Desktop Specific Masking Gradient Layer */}
       <div className="absolute inset-0 hidden md:block bg-linear-to-r from-navy via-navy/90 to-transparent pointer-events-none" />
 
-      {/* CHANGES MADE BELOW:
-        3. Changed padding-y from `py-16 md:py-24` to `pt-12 pb-16 md:py-24`. 
-           The smaller top padding (`pt-12`) shifts everything closer to the navbar on small screens.
-      */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-14 lg:px-20 pt-30 pb-16 md:py-24 relative z-10 flex flex-col justify-center">
+      {/* FIXED: Changed pt-30 (invalid Tailwind unless customized) to standard pt-12 sm:pt-20 */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-14 lg:px-20 pt-12 sm:pt-20 pb-16 md:py-24 relative z-10 flex flex-col justify-center">
         
         {/* Main Typography Header Section */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left font-bebas max-w-4xl tracking-wide leading-[0.95]">
+        {/* FIXED: Added leading-tight on mobile, switching to leading-[0.95] on larger screens */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left font-bebas max-w-4xl tracking-wide leading-tight md:leading-[0.95]">
           
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl">
+          {/* FIXED: Scaled down text size starting from text-4xl on small viewports */}
+          <h1 className="text-5xl xs:text-7xl sm:text-7xl lg:text-8xl xl:text-9xl w-full wrap-break-word">
             <GradientText 
               text="Fast, Honest Work" 
               gradient={goldGradient}
@@ -45,10 +40,12 @@ export default function Hero() {
             />
           </h1>
 
-          <h2 className="text-6xl lg:text-7xl xl:text-8xl text-white mt-2">
+          {/* FIXED: Scaled down text size starting from text-4xl */}
+          <h2 className="text-5xl xs:text-7xl sm:text-6xl lg:text-7xl xl:text-8xl text-white mt-2 w-full wrap-break-word">
             RIGHT ON ROUTE 66.
           </h2>
-          <p className="font-google text-base sm:text-lg md:text-xl lg:text-2xl mt-6 text-slate-300 normal-case max-w-md lg:max-w-2xl leading-relaxed font-normal">
+          
+          <p className="font-google text-base sm:text-lg md:text-xl lg:text-2xl mt-4 text-slate-300 normal-case max-w-sm lg:max-w-2xl leading-relaxed font-normal">
             Tulsa&apos;s most respected independent auto shop. We&apos;ve been
             fixing it right, the first time, since 1980. Experience precise diagnostics, transparent pricing, and efficient service designed to get you back on the road safely and swiftly.
           </p>
@@ -65,7 +62,7 @@ export default function Hero() {
           </button>
           <button 
             onClick={() => handleScroll('contact')} 
-            className="flex items-center justify-center gap-4 bg-transparent px-6 sm:px-8 py-3.5 sm:py-4 text-white border-2 border-white font-bold rounded-sm uppercase text-lg sm:text-xl transition-all duration-200 hover:bg-white hover:text-navy active:scale-[0.98] w-full sm:w-auto cursor-pointer"
+            className="flex items-center justify-center gap-4 bg-transparent px-6 sm:px-8 py-3.5 sm:py-4 text-white border-2 border-white font-bold rounded-sm uppercase text-lg sm:text-xl transition-all duration-300 hover:bg-white hover:text-navy active:scale-[0.98] w-full sm:w-auto cursor-pointer"
           >
             <CircleDollarSign size={22} strokeWidth={2} className="stroke-current" />
             Get a Quote

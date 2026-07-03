@@ -2,7 +2,6 @@
 "use client";
 import { MapPin, Phone, Clock } from "lucide-react";
 import Image from "next/image";
-import router from "next/router";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -23,7 +22,7 @@ export default function Footer() {
               <span className="text-gold">INTERPARTS</span> OF TULSA
             </h1>
             <p className="font-google text-white/60 text-sm leading-relaxed font-normal">
-              Tulsa's most trusted independent auto repair specialist since
+              Tulsa&apos;s most trusted independent auto repair specialist since
               1980. Honest diagnostics, fair pricing, guaranteed labor — right
               on Route 66.
             </p>
@@ -118,6 +117,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Interparts of Tulsa. All rights
             reserved.
           </p>
+          <a href="/terms" className="hover:text-gold transition-colors">Terms and Conditions</a>
           <p className="flex items-center gap-1.5">
             Built with <span className="text-red-500 animate-pulse">❤️</span> in
             Tulsa, Oklahoma.

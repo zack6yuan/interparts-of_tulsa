@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
 import { useState, useRef } from "react";
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, ShieldAlert } from "lucide-react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contact() {
@@ -92,6 +92,17 @@ export default function Contact() {
                 Most repairs are completed same-day, so you&apos;re not stuck
                 without a car any longer than you have to be.
               </p>
+              <p>
+                Have a quick question? Feel free to give us a call as well. We&apos;d
+                be more than happy to help you.
+              </p>
+              <div className="flex flex-col gap-3 border border-white/10 rounded-sm p-4 bg-white/3">
+                <div className="flex flex-row items-center gap-2">
+                  <ShieldAlert className="text-gold"/>
+                  <p className="font-bebas text-2xl">Form Submission Notice</p>
+                </div>
+                <p>By submitting this form, you agree to receive communications from Interparts of Tulsa regarding your service request. This site is protected by <span className="text-gold hover:text-gold/60 transition duration-200"><a href="https://www.google.com/recaptcha/about/">ReCAPTCHA</a></span>, the <span className="text-gold hover:text-gold/60 transition duration-200"><a href="https://policies.google.com/privacy">Google Privacy Policy</a></span> and our <span className="text-gold hover:text-gold/60 transition duration-200"><a href="/terms">Terms and Conditions</a></span>.</p>
+              </div>
             </div>
 
             <div className="flex flex-col gap-4 sm:gap-5 border-t border-white/10 pt-8 font-google font-normal text-sm sm:text-base">
@@ -178,7 +189,7 @@ export default function Contact() {
                   name="phone"
                   type="tel"
                   className="bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white placeholder:text-white/30 text-sm sm:text-base focus:outline-none focus:border-gold transition-colors font-normal"
-                  placeholder="(918) 555-0123"
+                  placeholder="(123) 456-7890"
                 />
               </div>
 
