@@ -17,8 +17,6 @@ export default function Contact() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
-
-    // 1. Extract the reCAPTCHA token value from the ref
     const recaptchaValue = recaptchaRef.current?.getValue();
 
     if (!recaptchaValue) {
@@ -26,20 +24,20 @@ export default function Contact() {
       return;
     }
 
-    // 2. Append the reCAPTCHA token to match Formspree's background validation rules
+    // Force append to ensure Formspree maps it perfectly
     data.append("g-recaptcha-response", recaptchaValue);
 
     try {
       const response = await fetch("https://formspree.io/f/mvzjvbkk", {
         method: "POST",
         body: data,
-        headers: { Accept: "application/json" },
+        // Removed the Accept header to prevent strict content-type mismatches
       });
 
       if (response.ok) {
         setStatus("success");
         form.reset();
-        recaptchaRef.current?.reset(); // Clear the reCAPTCHA checkbox state on success
+        recaptchaRef.current?.reset();
       } else {
         setStatus("error");
       }
@@ -93,15 +91,35 @@ export default function Contact() {
                 without a car any longer than you have to be.
               </p>
               <p>
-                Have a quick question? Feel free to give us a call as well. We&apos;d
-                be more than happy to help you.
+                Have a quick question? Feel free to give us a call as well.
+                We&apos;d be more than happy to help you.
               </p>
               <div className="flex flex-col gap-3 border border-white/10 rounded-sm p-4 bg-white/3">
                 <div className="flex flex-row items-center gap-2">
-                  <ShieldAlert className="text-gold"/>
+                  <ShieldAlert className="text-gold" />
                   <p className="font-bebas text-2xl">Form Submission Notice</p>
                 </div>
-                <p>By submitting this form, you agree to receive communications from Interparts of Tulsa regarding your service request. This site is protected by <span className="text-gold hover:text-gold/60 transition duration-200"><a href="https://www.google.com/recaptcha/about/">ReCAPTCHA</a></span>, the <span className="text-gold hover:text-gold/60 transition duration-200"><a href="https://policies.google.com/privacy">Google Privacy Policy</a></span> and our <span className="text-gold hover:text-gold/60 transition duration-200"><a href="/terms">Terms and Conditions</a></span>.</p>
+                <p>
+                  By submitting this form, you agree to receive communications
+                  from Interparts of Tulsa regarding your service request. This
+                  site is protected by{" "}
+                  <span className="text-gold hover:text-gold/60 transition duration-200">
+                    <a href="https://www.google.com/recaptcha/about/">
+                      ReCAPTCHA
+                    </a>
+                  </span>
+                  , the{" "}
+                  <span className="text-gold hover:text-gold/60 transition duration-200">
+                    <a href="https://policies.google.com/privacy">
+                      Google Privacy Policy
+                    </a>
+                  </span>{" "}
+                  and our{" "}
+                  <span className="text-gold hover:text-gold/60 transition duration-200">
+                    <a href="/terms">Terms and Conditions</a>
+                  </span>
+                  .
+                </p>
               </div>
             </div>
 
