@@ -1,42 +1,11 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
-import { useState } from "react";
+import { useForm } from "@formspree/react";
 import { MapPin, Phone, Clock } from "lucide-react";
 
 export default function Contact() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      // Convert FormData entries into a standard JavaScript object
-      const formObject = Object.fromEntries(data.entries());
-
-      // Send as a clean JSON payload with explicit content-type headers
-      const response = await fetch("https://formspree.io/f/mvzjvbkk", {
-        method: "POST",
-        body: JSON.stringify(formObject),
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json" 
-        },
-      });
-
-      if (response.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  };
+  // Formspree handles the submission entirely under the hood
+  const [state, handleSubmit] = useForm("mvzjvbkk");
   
   return (
     <div id="contact" className="relative w-full min-h-screen flex flex-col justify-center bg-navy bg-cover bg-center bg-no-repeat overflow-hidden py-16 md:py-24">
@@ -49,26 +18,25 @@ export default function Contact() {
           <div className="flex flex-col items-start font-bebas tracking-wide leading-[0.95] w-full border-b border-white/10 pb-6">
             <p className="text-2xl md:text-3xl mb-3 text-white/30">// Quick Quote</p>
             <h2 className="text-5xl sm:text-7xl md:text-8xl text-gold mt-1">
-              <span className="text-white">Let's</span> Talk.
+              <span className="text-white">Let&apos;s</span> Talk.
             </h2>
           </div>
           
           <div className="flex flex-col gap-4 text-white/80 text-base md:text-lg leading-relaxed font-google font-normal">
-            <p>Located right on Route 66 in the heart of Tulsa. Call, stop in, or send us a message, and we'll get you back on the road fast.</p>
-            <p>Whether it's a check engine light, a strange noise, or routine maintenance, our team will give you a straight answer. No upselling, no pressure.</p>
+            <p>Located right on Route 66 in the heart of Tulsa. Call, stop in, or send us a message, and we&apos;ll get you back on the road fast.</p>
+            <p>Whether it&apos;s a check engine light, a strange noise, or routine maintenance, our team will give you a straight answer. No upselling, no pressure.</p>
           </div>
 
           <div className="flex flex-col gap-4 border-t border-white/10 pt-8 font-google text-sm sm:text-base">
             <div className="flex items-center gap-4">
               <MapPin className="stroke-gold shrink-0" size={20} />
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-gold transition-colors">
+              <a href="http://maps.google.com/?q=3615+E+11th+St+Tulsa+OK+74112" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-gold transition-colors">
                 3615 E 11th St, Tulsa, OK 74112
               </a>
             </div>
             <div className="flex items-center gap-4">
               <Phone className="stroke-gold shrink-0" size={20} />
-              <a href="tel:+19188341800" className="text-white/80 hover:text-gold transition-colors">(918) 834-1800
-              </a>
+              <a href="tel:+19188341800" className="text-white/80 hover:text-gold transition-colors">(918) 834-1800</a>
             </div>
             <div className="flex items-center gap-4">
               <Clock className="stroke-gold shrink-0" size={20} />
@@ -81,7 +49,7 @@ export default function Contact() {
         <div className="w-full max-w-xl mx-auto lg:mx-0">
           <form onSubmit={handleSubmit} className="flex flex-col gap-5 bg-white/3 border border-white/10 rounded-sm p-5 sm:p-8">
             
-            {/* Formspree Anti-Spam Honeypot Field (Invisible to users) */}
+            {/* Anti-Spam Honeypot Field */}
             <input type="text" name="_gotcha" className="hidden" />
 
             <div className="flex flex-col gap-2 font-google">
@@ -101,24 +69,23 @@ export default function Contact() {
 
             <div className="flex flex-col gap-2 font-google">
               <label htmlFor="message" className="text-xs sm:text-sm text-white/60 font-medium">Message</label>
-              <textarea id="message" name="message" required rows={5} className="bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white placeholder:text-white/30 text-sm sm:text-base focus:outline-none focus:border-gold transition-colors resize-none" placeholder="Tell us what's going on with your vehicle..." />
+              <textarea id="message" name="message" required rows={5} className="bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white placeholder:text-white/30 text-sm sm:text-base focus:outline-none focus:border-gold transition-colors resize-none" placeholder="Tell us what&apos;s going on with your vehicle..." />
             </div>
 
-            <button type="submit" disabled={status === "submitting"} className="mt-2 bg-gold text-navy font-bebas text-xl tracking-wide py-3 rounded-sm hover:bg-yellow-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
-              {status === "submitting" ? "Sending..." : "Send Message"}
+            <button type="submit" disabled={state.submitting} className="mt-2 bg-gold text-navy font-bebas text-xl tracking-wide py-3 rounded-sm hover:bg-yellow-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
+              {state.submitting ? "Sending..." : "Send Message"}
             </button>
 
-            {status === "success" && (
-              <p className="font-google text-sm text-green-400 text-center mt-1">Thanks, we'll be in touch soon.</p>
+            {state.succeeded && (
+              <p className="font-google text-sm text-green-400 text-center mt-1">Thanks, we&apos;ll be in touch soon.</p>
             )}
-            {status === "error" && (
+            {Array.isArray(state.errors) && state.errors.length > 0 && (
               <p className="font-google text-sm text-red-400 text-center mt-1">Something went wrong. Please try again or call us directly.</p>
             )}
 
-            {/* Privacy Compliance Footer */}
             <p className="mt-4 text-center font-google text-[11px] leading-relaxed text-white/40 font-normal">
               By submitting this form, you agree to receive communications from Interparts of Tulsa regarding your service request. View our{' '}
-              <a href="/terms-and-conditions" className="underline hover:text-gold transition-colors">Terms & Conditions</a>.
+              <a href="/terms-and-conditions" className="underline hover:text-gold transition-colors">Terms &amp; Conditions</a>.
             </p>
           </form>
         </div>
