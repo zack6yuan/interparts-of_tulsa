@@ -5,14 +5,8 @@ import { useForm } from "@formspree/react";
 import { MapPin, Phone, Clock } from "lucide-react";
 
 export default function Contact() {
-  // 1. Rename the base hook submission pipeline to avoid native layout confusion
-  const [state, sendToFormspree] = useForm("mvzjvbkk");
-
-  // 2. Wrap the submission loop using updated TypeScript React parameters
-  const handleProductionSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // <-- This completely stops the browser from rewriting the URL query string
-    await sendToFormspree(e);
-  };
+  // Use Formspree's native library handler directly
+  const [state, handleSubmit] = useForm("mvzjvbkk");
 
   return (
     <div
@@ -29,17 +23,17 @@ export default function Contact() {
               // Quick Quote
             </p>
             <h2 className="text-5xl sm:text-7xl md:text-8xl text-gold mt-1">
-              <span className="text-white">Let&apos;s</span> Talk.
+              <span className="text-white">Let's</span> Talk.
             </h2>
           </div>
 
           <div className="flex flex-col gap-4 text-white/80 text-base md:text-lg leading-relaxed font-google font-normal">
             <p>
               Located right on Route 66 in the heart of Tulsa. Call, stop in, or
-              send us a message, and we&apos;ll get you back on the road fast.
+              send us a message, and we'll get you back on the road fast.
             </p>
             <p>
-              Whether it&apos;s a check engine light, a strange noise, or
+              Whether it's a check engine light, a strange noise, or
               routine maintenance, our team will give you a straight answer. No
               upselling, no pressure.
             </p>
@@ -77,8 +71,9 @@ export default function Contact() {
 
         {/* Right Column: Form Block */}
         <div className="w-full max-w-xl mx-auto lg:mx-0">
+          {/* Passing Formspree's native handleSubmit directly removes intermediate type checkers */}
           <form
-            onSubmit={handleProductionSubmit}
+            onSubmit={handleSubmit}
             className="flex flex-col gap-5 bg-white/3 border border-white/10 rounded-sm p-5 sm:p-8"
           >
             {/* Anti-Spam Honeypot Field */}
@@ -164,7 +159,7 @@ export default function Contact() {
 
             {state.succeeded && (
               <p className="font-google text-sm text-green-400 text-center mt-1">
-                Thanks, we&apos;ll be in touch soon.
+                Thanks, we'll be in touch soon.
               </p>
             )}
             {state.errors && state.errors.length > 0 && (
@@ -180,7 +175,7 @@ export default function Contact() {
                 href="/terms-and-conditions"
                 className="underline hover:text-gold transition-colors"
               >
-                Terms &amp; Conditions
+                Terms & Conditions
               </a>
               .
             </p>
