@@ -1,11 +1,18 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
+import React from "react";
 import { useForm } from "@formspree/react";
 import { MapPin, Phone, Clock } from "lucide-react";
 
 export default function Contact() {
-  // Formspree handles the submission entirely under the hood
-  const [state, handleSubmit] = useForm("mvzjvbkk");
+  // 1. Rename the base hook submission pipeline to avoid native layout confusion
+  const [state, sendToFormspree] = useForm("mvzjvbkk");
+
+  // 2. Wrap the submission loop using updated TypeScript React parameters
+  const handleProductionSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // <-- This completely stops the browser from rewriting the URL query string
+    await sendToFormspree(e);
+  };
 
   return (
     <div
@@ -71,7 +78,7 @@ export default function Contact() {
         {/* Right Column: Form Block */}
         <div className="w-full max-w-xl mx-auto lg:mx-0">
           <form
-            onSubmit={handleSubmit}
+            onSubmit={handleProductionSubmit}
             className="flex flex-col gap-5 bg-white/3 border border-white/10 rounded-sm p-5 sm:p-8"
           >
             {/* Anti-Spam Honeypot Field */}
@@ -147,7 +154,11 @@ export default function Contact() {
               />
             </div>
 
-            <button type="submit" disabled={state.submitting} className="...">
+            <button
+              type="submit"
+              disabled={state.submitting}
+              className="mt-2 bg-gold text-navy font-bebas text-xl tracking-wide py-3 rounded-sm hover:bg-yellow-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer w-full"
+            >
               {state.submitting ? "Sending..." : "Send Message"}
             </button>
 
@@ -156,7 +167,7 @@ export default function Contact() {
                 Thanks, we&apos;ll be in touch soon.
               </p>
             )}
-            {Array.isArray(state.errors) && state.errors.length > 0 && (
+            {state.errors && state.errors.length > 0 && (
               <p className="font-google text-sm text-red-400 text-center mt-1">
                 Something went wrong. Please try again or call us directly.
               </p>
