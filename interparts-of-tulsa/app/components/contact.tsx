@@ -1,12 +1,37 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "@formspree/react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { MapPin, Phone, Clock } from "lucide-react";
 
 export default function Contact() {
-  // Use Formspree's native library handler directly
-  const [state, handleSubmit] = useForm("mvzjvbkk");
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaMissing, setRecaptchaMissing] = useState(false);
+
+  const [state, handleSubmit] = useForm("mvzjvbkk", {
+    data: {
+      "g-recaptcha-response": () => recaptchaRef.current?.getValue() ?? "",
+    },
+  });
+
+  useEffect(() => {
+    if (state.succeeded) {
+      recaptchaRef.current?.reset();
+      setRecaptchaMissing(false);
+    }
+  }, [state.succeeded]);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    if (!recaptchaRef.current?.getValue()) {
+      e.preventDefault();
+      setRecaptchaMissing(true);
+      return;
+    }
+
+    setRecaptchaMissing(false);
+    await handleSubmit(e);
+  };
 
   return (
     <div
@@ -72,7 +97,7 @@ export default function Contact() {
         {/* Right Column: Form Block */}
         <div className="w-full max-w-xl mx-auto lg:mx-0">
           <form
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             className="flex flex-col gap-5 bg-white/3 border border-white/10 rounded-sm p-5 sm:p-8"
           >
             {/* Anti-Spam Honeypot Field */}
@@ -148,6 +173,15 @@ export default function Contact() {
               />
             </div>
 
+            <div className="my-1 flex w-full justify-center overflow-hidden">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                theme="dark"
+                onChange={() => setRecaptchaMissing(false)}
+              />
+            </div>
+
             <button
               type="submit"
               disabled={state.submitting}
@@ -159,6 +193,12 @@ export default function Contact() {
             {state.succeeded && (
               <p className="font-google text-sm text-green-400 text-center mt-1">
                 Thanks, we'll be in touch soon.
+              </p>
+            )}
+
+            {recaptchaMissing && (
+              <p className="font-google text-sm text-yellow-400 text-center mt-1">
+                Please complete the reCAPTCHA verification step.
               </p>
             )}
             
