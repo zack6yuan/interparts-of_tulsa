@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Wrench, Menu, X, CircleDollarSign } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from 'next/image';
 
 export default function Navbar() {
   const router = useRouter();
@@ -27,7 +28,7 @@ export default function Navbar() {
           className="text-2xl sm:text-3xl font-bebas cursor-pointer relative z-50 text-white tracking-wide shrink-0"
           onClick={() => { router.push("/"); setIsOpen(false); }}
         >
-          <span className="text-gold">INTERPARTS</span> OF TULSA
+          <Image src="/interparts-logo.webp" width={240} height={240} alt="interparts-of-tulsa-logo"></Image>
         </h1>
 
         {/* Desktop Navigation Links - Now safely switches to mobile menu below 1024px (lg) */}
