@@ -31,7 +31,7 @@ export default function Hero() {
         <div className="flex flex-col items-center md:items-start text-center md:text-left font-bebas max-w-4xl tracking-wide leading-tight md:leading-[0.95]">
           
           {/* FIXED: Scaled down text size starting from text-4xl on small viewports */}
-          <h1 className="text-5xl xs:text-7xl sm:text-7xl lg:text-8xl xl:text-9xl w-full wrap-break-word">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl w-full wrap-break-word">
             <GradientText 
               text="Fast, Honest Work" 
               gradient={goldGradient}
@@ -41,11 +41,11 @@ export default function Hero() {
           </h1>
 
           {/* FIXED: Scaled down text size starting from text-4xl */}
-          <h2 className="text-5xl xs:text-7xl sm:text-6xl lg:text-7xl xl:text-8xl text-white mt-2 w-full wrap-break-word">
+          <h2 className="text-6xl sm:text-7xl xl:text-8xl text-white mt-2 w-full wrap-break-word">
             RIGHT ON ROUTE 66.
           </h2>
           
-          <p className="font-google text-base sm:text-lg md:text-xl lg:text-2xl mt-4 text-slate-300 normal-case max-w-sm lg:max-w-2xl leading-relaxed font-normal">
+          <p className="font-google text-base text-left sm:text-lg md:text-xl lg:text-2xl mt-4 text-slate-300 normal-case max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl leading-relaxed font-normal">
             Tulsa&apos;s most respected independent auto shop. We&apos;ve been
             fixing it right, the first time, since 1980. Experience precise diagnostics, transparent pricing, and efficient service designed to get you back on the road safely and swiftly.
           </p>
