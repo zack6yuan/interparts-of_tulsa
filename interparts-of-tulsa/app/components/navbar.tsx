@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Wrench, Menu, X, CircleDollarSign } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Navbar() {
   const router = useRouter();
@@ -25,10 +25,20 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-14 py-4 flex justify-between items-center">
         {/* Logo */}
         <h1
-          className="text-2xl sm:text-3xl font-bebas cursor-pointer relative z-50 text-white tracking-wide shrink-0"
-          onClick={() => { router.push("/"); setIsOpen(false); }}
+          className="cursor-pointer relative z-50 shrink-0"
+          onClick={() => {
+            router.push("/");
+            setIsOpen(false);
+          }}
         >
-          <Image src="/interparts-logo.webp" width={240} height={240} alt="interparts-of-tulsa-logo"></Image>
+          <Image
+            src="/interparts-logo.webp"
+            width={240}
+            height={240}
+            alt="interparts-of-tulsa-logo"
+            className="w-32 sm:w-40 md:w-48 lg:w-56 h-auto"
+            priority
+          />
         </h1>
 
         {/* Desktop Navigation Links - Now safely switches to mobile menu below 1024px (lg) */}
@@ -47,13 +57,18 @@ export default function Navbar() {
 
         {/* Desktop Action Button - Aligned to lg visibility */}
         <div className="hidden lg:block">
-          <button 
-            className="relative overflow-hidden rounded bg-gold text-navy font-google font-bold px-5 py-2.5 flex items-center gap-2.5 shadow-lg shadow-gold/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-gold/20 active:translate-y-0 group" 
+          <button
+            className="relative overflow-hidden rounded bg-gold text-navy font-google font-bold px-5 py-2.5 flex items-center gap-2.5 shadow-lg shadow-gold/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-gold/20 active:translate-y-0 group"
             onClick={() => handleScroll("contact")}
           >
             <span className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shine_1s_ease-in-out]" />
-            <CircleDollarSign size={20} className="text-navy stroke-2 transition-transform duration-300" />
-            <span className="text-base tracking-wide font-google">GET A QUOTE</span>
+            <CircleDollarSign
+              size={20}
+              className="text-navy stroke-2 transition-transform duration-300"
+            />
+            <span className="text-base tracking-wide font-google">
+              GET A QUOTE
+            </span>
           </button>
         </div>
 
@@ -86,8 +101,8 @@ export default function Navbar() {
         </ul>
 
         {/* Mobile Action Button */}
-        <button 
-          className="w-full max-w-xs relative overflow-hidden rounded bg-gold text-navy font-google font-bold py-3.5 flex justify-center items-center gap-2.5 shadow-lg shadow-gold/10" 
+        <button
+          className="w-full max-w-xs relative overflow-hidden rounded bg-gold text-navy font-google font-bold py-3.5 flex justify-center items-center gap-2.5 shadow-lg shadow-gold/10"
           onClick={() => handleScroll("contact")}
         >
           <CircleDollarSign size={22} className="text-navy" />
