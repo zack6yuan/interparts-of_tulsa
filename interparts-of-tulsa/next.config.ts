@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Pin Turbopack's workspace root to this project. A lockfile in the parent
+  // directory made Next infer the parent as root and crawl its node_modules,
+  // which wedged the dev server (pegged CPU, no route ever compiled).
+  turbopack: {
+    root: __dirname,
+  },
   async redirects() {
     // The old multi-page site (still in Google's index) 301/308s to the
     // matching section of the new single-page site so old links keep working
