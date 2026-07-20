@@ -13,6 +13,10 @@
 # testing
 /coverage
 
+# playwright screenshot harness output
+/screenshots/
+/test-results/
+
 # next.js
 /.next/
 /out/
