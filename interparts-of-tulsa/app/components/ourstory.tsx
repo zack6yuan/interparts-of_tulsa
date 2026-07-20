@@ -36,7 +36,7 @@ export default function OurStory() {
           </div>
 
           {/* Right Column: Text + 2x2 Grid */}
-          <div className="w-full flex flex-col justify-center gap-8 md:gap-10 max-w-xl mx-auto lg:mx-0">
+          <div className="w-full flex flex-col justify-center gap-8 md:gap-10">
             {/* Paragraphs - Configured to utilize clean font-google tokens */}
             <div className="flex flex-col gap-4 text-white/80 text-base md:text-lg leading-relaxed font-google font-normal">
               <p>
