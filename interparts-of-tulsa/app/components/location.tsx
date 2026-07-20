@@ -17,8 +17,8 @@ export default function Location() {
         <div className="flex flex-col items-start border-b border-white/10 pb-8 text-left">
           <div className="flex flex-col items-start font-bebas tracking-wide leading-[0.95]">
             <p className="text-2xl md:text-3xl mb-3 md:mb-4 text-white/30">// Find Us</p>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl text-white">Located in the</h1>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl text-gold mt-1">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">Located in the</h1>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-gold mt-1">
               Heart of Tulsa.
             </h2>
           </div>

@@ -13,11 +13,11 @@ export default function OurStory() {
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-14 relative z-10 flex flex-col gap-8 md:gap-12">
         {/* Header Section - Kept right-aligned on desktop, adapts cleanly on mobile */}
-        <div className="flex flex-col items-start md:items-end md:justify-end gap-6 border-b border-white/10 pb-8 text-left md:text-right">
-          <div className="flex flex-col items-start md:items-end font-bebas tracking-wide leading-[0.95] w-full">
+        <div className="flex flex-col items-start lg:items-end lg:justify-end gap-6 border-b border-white/10 pb-8 text-left lg:text-right">
+          <div className="flex flex-col items-start lg:items-end font-bebas tracking-wide leading-[0.95] w-full">
             <p className="text-2xl md:text-3xl mb-3 md:mb-4 text-white/30">// Our Story</p>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl text-white">BORN ON</h1>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl text-gold mt-1">ROUTE 66.</h2>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">BORN ON</h1>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-gold mt-1">ROUTE 66.</h2>
           </div>
         </div>
 

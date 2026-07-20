@@ -147,8 +147,8 @@ export default function Testimonials() {
           {/* Heading - Safely anchors to top right on desktop viewports */}
           <div className="flex flex-col items-start lg:items-end font-bebas tracking-wide leading-[0.95] w-full lg:mt-2">
             <p className="text-2xl md:text-3xl mb-3 md:mb-4 text-white/30">// Customer Reviews</p>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl text-white">Tulsa Speaks</h1>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl text-gold mt-1">For Itself.</h2>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">Tulsa Speaks</h1>
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-gold mt-1">For Itself.</h2>
           </div>
         </div>
 
