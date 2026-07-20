@@ -2,7 +2,7 @@ import { Phone, MapPin, Star } from "lucide-react";
 
 export default function SubNav() {
   return (
-    <div className="w-full bg-navy border-b-2 border-gold text-white text-[11px] xs:text-xs sm:text-sm font-google">
+    <div className="w-full bg-navy border-b-2 border-gold text-white text-[11px] sm:text-sm font-google">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-14 py-2 flex flex-col md:flex-row items-center justify-between gap-2.5 md:gap-6">
         
         {/* Left Side: Contact Details (Forced Horizontal Rows) */}

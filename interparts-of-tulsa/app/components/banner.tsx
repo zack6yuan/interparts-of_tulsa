@@ -31,7 +31,7 @@ export default function Banner() {
   return (
     <div className="w-full bg-gold py-8 md:py-10 px-4 sm:px-6 lg:px-14 text-navy">
       {/* Grid shifts cleanly: 1 col on mobile, 2 col on tablet/small mobile, 4 col on desktop */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-y-0 items-center justify-items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-y-0 items-center md:items-stretch justify-items-center">
         
         {/* Stat 1 */}
         <div className="flex items-center justify-center md:justify-start lg:justify-center gap-3 w-full font-bebas px-4">
@@ -43,7 +43,7 @@ export default function Banner() {
         </div>
 
         {/* Stat 2 */}
-        <div className="flex items-center justify-center md:justify-start lg:justify-center gap-3 w-full font-bebas px-4 border-t md:border-t-0 md:border-l border-navy/20 pt-10 md:pt-0 md:h-12">
+        <div className="flex items-center justify-center md:justify-start lg:justify-center gap-3 w-full font-bebas px-4 border-t md:border-t-0 md:border-l border-navy/20 pt-10 md:pt-0">
           <p className="text-5xl lg:text-6xl font-medium tracking-tight">12K+</p>
           <p className="text-base lg:text-lg font-google font-bold leading-tight uppercase">
             Vehicles
@@ -52,7 +52,7 @@ export default function Banner() {
         </div>
 
         {/* Stat 3 */}
-        <div className="flex items-center justify-center md:justify-start lg:justify-center gap-3 w-full font-bebas px-4 border-t md:border-t-0 lg:border-l border-navy/20 pt-10 md:pt-0 md:h-12">
+        <div className="flex items-center justify-center md:justify-start lg:justify-center gap-3 w-full font-bebas px-4 border-t md:border-t-0 lg:border-l border-navy/20 pt-10 md:pt-0">
           <p className="text-5xl lg:text-6xl font-medium tracking-tight">4.7</p>
           <div className="flex flex-col gap-1 items-start">
             <StarRating rating={4.7} size={18} />
@@ -63,7 +63,7 @@ export default function Banner() {
         </div>
 
         {/* Stat 4 */}
-        <div className="flex items-center justify-center md:justify-start lg:justify-center gap-3 w-full font-bebas px-4 border-t md:border-t-0 md:border-l border-navy/20 pt-10 md:pt-0 md:h-12">
+        <div className="flex items-center justify-center md:justify-start lg:justify-center gap-3 w-full font-bebas px-4 border-t md:border-t-0 md:border-l border-navy/20 pt-10 md:pt-0">
           <p className="text-5xl lg:text-6xl font-medium tracking-tight">6</p>
           <p className="text-base lg:text-lg font-google font-bold leading-tight uppercase">
             Month Guarantee <br /> on all Labor

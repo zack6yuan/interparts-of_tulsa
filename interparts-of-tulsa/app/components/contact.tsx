@@ -73,7 +73,7 @@ export default function Contact() {
             <p className="text-2xl md:text-3xl mb-3 text-white/30">
               // Quick Quote
             </p>
-            <h2 className="text-5xl sm:text-7xl md:text-8xl text-gold mt-1">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-gold mt-1">
               <span className="text-white">Let&apos;s</span> Talk.
             </h2>
           </div>
