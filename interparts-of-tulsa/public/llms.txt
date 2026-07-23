@@ -1,0 +1,35 @@
+# Interparts of Tulsa
+
+> Independent auto repair shop at 3615 E 11th St in Tulsa, Oklahoma, on historic Route 66 since 1980. Honest diagnostics, up-front pricing, and a six-month guarantee on all labor. Not a chain, not a franchise.
+
+- Address: 3615 E 11th St, Tulsa, OK 74112
+- Phone: (918) 834-1800
+- Hours: Monday through Friday, 8:00 AM to 4:30 PM
+- Service area: Tulsa and Northeast Oklahoma
+
+## Services
+
+- AC/Heater repair: climate control diagnostics, leak detection, freon recharges, blower motor fixes, compressor replacements.
+- Brakes and suspension: pad and rotor replacements, caliper servicing, shocks, struts, control arms, steering components.
+- General repair: fluid leaks, belt replacements, full mechanical diagnostics.
+- Engine repair: diagnostics, timing belts, head gaskets, oil leak resolution, minor to major rebuilds.
+- Transmission repair: fluid flushes, clutch adjustments, torque converter fixes, assembly replacement and rebuilds.
+- Tune-ups and maintenance: spark plugs, filter changes, fluid flushes, safety checks, mileage-interval preventative maintenance.
+
+## What sets the shop apart
+
+- Written diagnosis before any work begins — printed inspection sheets, not verbal estimates that shift.
+- The quoted price is the price paid; no unexpected changes.
+- The same certified technician works on your vehicle each visit; no rotating staff.
+- Committed timelines, with proactive communication if a job runs over.
+- Six-month guarantee on all labor: if the problem returns, it is fixed at no charge.
+- Locally owned and locally staffed.
+
+## Pages
+
+- [Home](https://www.interpartsoftulsa.com/): Single-page site covering services, shop history, customer reviews, location and hours, and the contact form.
+- [Terms and Conditions](https://www.interpartsoftulsa.com/terms): Service estimates and authorizations, messaging submission, storage and mechanics liens.
+
+## Optional
+
+- [Sitemap](https://www.interpartsoftulsa.com/sitemap.xml)
