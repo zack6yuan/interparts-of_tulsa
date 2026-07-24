@@ -1,12 +1,15 @@
 "use client";
 import Link from "next/link";
 import { ArrowLeft, ShieldAlert, Scale, ShieldCheck } from "lucide-react";
+import JsonLd from "@/app/components/json-ld";
+import { termsBreadcrumbSchema } from "@/app/structured-data";
 
 export default function TermsAndConditions() {
   const currentYear = new Date().getFullYear();
 
   return (
     <div className="relative w-full min-h-screen bg-navy text-white font-google overflow-hidden py-16 md:py-24">
+      <JsonLd data={termsBreadcrumbSchema} />
       {/* Background Subtle Blueprint Grid for Site Cohesion */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[40px_40px] pointer-events-none" />
 

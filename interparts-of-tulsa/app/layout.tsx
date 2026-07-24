@@ -3,7 +3,9 @@ import { Google_Sans_Flex, Bebas_Neue, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/navbar";
 import SubNav from "./components/subnav";
+import JsonLd from "@/app/components/json-ld";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/app/site-config";
+import { businessSchema, websiteSchema } from "@/app/structured-data";
 
 const googleSansFlex = Google_Sans_Flex({
   subsets: ['latin'],
@@ -56,6 +58,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${googleSansFlex.variable} ${bebasNeue.variable} ${spaceGrotesk.variable}`}>
       <body className={googleSansFlex.className}>
+        {/* Site-wide business identity, on every route so any indexed page
+            carries the NAP details crawlers and AI assistants look for. */}
+        <JsonLd data={businessSchema} />
+        <JsonLd data={websiteSchema} />
         <SubNav />
         <Navbar />
         {children}
