@@ -6,23 +6,24 @@ import SubNav from "./components/subnav";
 import JsonLd from "@/app/components/json-ld";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/app/site-config";
 import { businessSchema, websiteSchema } from "@/app/structured-data";
+import { Analytics } from "@vercel/analytics/next";
 
 const googleSansFlex = Google_Sans_Flex({
-  subsets: ['latin'],
-  variable: '--font-google-sans-flex',
-})
+  subsets: ["latin"],
+  variable: "--font-google-sans-flex",
+});
 
 const bebasNeue = Bebas_Neue({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-bebas-neue',
-})
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bebas-neue",
+});
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-space-grotesk',
-})
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-space-grotesk",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -56,7 +57,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${googleSansFlex.variable} ${bebasNeue.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang="en"
+      className={`${googleSansFlex.variable} ${bebasNeue.variable} ${spaceGrotesk.variable}`}
+    >
       <body className={googleSansFlex.className}>
         {/* Site-wide business identity, on every route so any indexed page
             carries the NAP details crawlers and AI assistants look for. */}
@@ -65,6 +69,7 @@ export default function RootLayout({
         <SubNav />
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
