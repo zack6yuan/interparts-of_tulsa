@@ -5,6 +5,7 @@ import OurStory from "./components/ourstory";
 import Services from "./components/services";
 import Testimonials from "./components/testimonials";
 import Location from "./components/location";
+import FAQSection from "./components/faq";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 
@@ -22,6 +23,8 @@ export default function Home() {
       <Testimonials />
       <hr className="w-full border-t border-gold/50" />
       <Location />
+      <hr className="w-full border-t border-gold/50" />
+      <FAQSection />
       <hr className="w-full border-t border-gold/50" />
       <Contact />
       <hr className="w-full border-t border-gold/50" />
